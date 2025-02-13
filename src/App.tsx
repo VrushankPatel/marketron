@@ -7,7 +7,7 @@ import OrderAuditTrail from './components/OrderAuditTrail';
 import { Moon, Sun } from 'lucide-react';
 import { useSimulation } from './services/simulationService';
 import { usePersistence } from './services/persistenceService';
-
+import logo from './assets/logo.png';
 /**
  * @author Vrushank Patel
  * @description Global type declaration for window.setDarkMode function
@@ -70,7 +70,19 @@ function App() {
       <div className="max-w-7xl mx-auto space-y-8">
         <div className="flex justify-between items-center">
           <h1 className={`text-4xl font-bold ${darkMode ? 'text-white' : 'text-gray-900'} mb-8`}>
-            Trading Simulator
+            <div style={{
+              display: 'flex',
+              alignItems: 'center',
+            }}>
+            <img src={logo} style={{
+              width: '80px',
+              height: '100px',
+              borderRadius: '100%',
+              objectFit: 'cover',
+              transition: 'transform 0.3s ease',
+              marginRight: '-15px',
+            }}/>arketron
+            </div>
           </h1>
           <div className="flex items-center space-x-4">
             <button
