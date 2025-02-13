@@ -85,6 +85,12 @@ function App() {
             </div>
           </h1>
           <div className="flex items-center space-x-4">
+          <button
+              onClick={() => window.location = "https://marketron-v2.web.app/"}
+              className={`px-4 py-2 rounded-lg bg-blue-500 hover:bg-gray-600 text-white`}
+            >
+              Advance Mode
+            </button>
             <button
               onClick={() => isRunning ? stopSimulation() : startSimulation()}
               className={`px-4 py-2 rounded-lg ${
