@@ -149,7 +149,7 @@ function App() {
 
       {showFixionary && (
         <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
-          <div className="bg-white rounded-lg shadow-xl w-full max-w-6xl h-[80vh] flex flex-col">
+          <div className="bg-white rounded-lg shadow-xl w-full max-w-6xl h-full flex flex-col">
             <div className="flex justify-between items-center p-4 border-b">
               <h2 className="text-xl font-bold text-gray-800">Fixionary</h2>
               <button
@@ -159,7 +159,7 @@ function App() {
                 <X className="w-6 h-6" />
               </button>
             </div>
-            <div className="flex-1 overflow-hidden">
+            <div className="flex-1 overflow-hidden flex">
               <iframe
                 src="https://thefixionary.web.app"
                 className="w-full h-full"
