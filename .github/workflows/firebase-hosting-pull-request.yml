@@ -14,4 +14,4 @@ jobs:
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_MARKETRON_V1 }}'
-          projectId: marketron-v1
+          projectId: marketron-x
