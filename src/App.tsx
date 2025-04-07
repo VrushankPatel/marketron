@@ -95,7 +95,7 @@ function App() {
             </button>
             
             <button
-              onClick={() => window.location.href = "https://marketron-v2.web.app/"}
+              onClick={() => window.location.href = "/v2/index.html"}
               className={`group h-10 px-4 py-2 rounded-lg bg-blue-500 hover:bg-blue-600 text-white flex items-center justify-center transition-all duration-200 overflow-hidden w-[42px] hover:w-[165px]`}
             >
               <Rocket className="w-5 h-5 min-w-[20px]" />
