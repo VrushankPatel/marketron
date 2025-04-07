@@ -1,0 +1,248 @@
+/* OATM Panel Styles */
+:root {
+    --arrow-size: 8px;
+    --timeline-width: 2px;
+    --entry-gap: 12px;
+}
+
+.oatm {
+    grid-column: 1 / -1;
+    width: 100%;
+    margin-top: 20px;
+    background: var(--section-bg);
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 5px var(--shadow-color);
+}
+
+.oatm-container {
+    height: 600px;
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.oatm-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20%;
+    margin-bottom: 20px;
+    position: sticky;
+    top: 0;
+    background: var(--section-bg);
+    z-index: 2;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+}
+
+.client-side, .marketron-side {
+    font-weight: bold;
+    color: var(--text-color);
+    padding: 10px;
+    font-size: 1.1em;
+}
+
+.oatm-timeline-wrapper {
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.oatm-timeline {
+    position: relative;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.oatm-timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: var(--timeline-width);
+    background: var(--border-color);
+}
+
+.timeline-entry {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: var(--entry-gap) 0;
+    position: relative;
+}
+
+.timeline-content {
+    background: var(--section-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 8px;
+    width: 45%;
+    position: relative;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    color: var(--text-color);
+}
+
+.timeline-content.left {
+    margin-right: 50%;
+}
+
+.timeline-content.right {
+    margin-left: 50%;
+}
+
+.timeline-arrow {
+    width: 0;
+    height: 0;
+    border: var(--arrow-size) solid transparent;
+    position: relative;
+}
+
+.arrow-client-to-marketron {
+    border-left-color: var(--button-bg);
+    margin: 0 var(--arrow-size);
+}
+
+.arrow-marketron-to-client {
+    border-right-color: var(--button-bg);
+    margin: 0 var(--arrow-size);
+}
+
+.arrow-trade {
+    border-left-color: #43a047;
+    border-right-color: #43a047;
+}
+
+.entry-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 6px;
+    color: var(--text-color);
+    font-size: 0.85em;
+    opacity: 0.8;
+}
+
+.order-id {
+    font-size: 0.75em;
+    color: var(--text-color);
+    opacity: 0.7;
+    margin-top: 4px;
+}
+
+.entry-details {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9em;
+    color: var(--text-color);
+}
+
+.execution-report-btn {
+    background: var(--button-bg);
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 0.8em;
+    transition: all 0.3s ease;
+    width: auto;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.execution-report-btn:hover {
+    background: var(--button-hover);
+    transform: translateY(-1px);
+}
+
+/* Execution Report Modal */
+.execution-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.execution-modal-content {
+    background: var(--section-bg);
+    padding: 20px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 600px;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.close-modal {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--text-color);
+}
+
+.close-modal:hover {
+    color: var(--button-hover);
+}
+
+/* Dark Mode Adjustments */
+[data-theme="dark"] .timeline-content {
+    background: var(--section-bg);
+    border-color: var(--border-color);
+    color: var(--text-color);
+}
+
+[data-theme="dark"] .entry-header {
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+[data-theme="dark"] .entry-details {
+    color: var(--text-color);
+}
+
+[data-theme="dark"] .execution-modal-content {
+    background: var(--section-bg);
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+}
+
+.oatm-card {
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px 0;
+    width: 45%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Buy order cards */
+.timeline-content[data-type="buy-order"],
+.timeline-content[data-type="buy-accepted"] {
+    background-color: rgba(33, 150, 83, 0.2) !important;  /* Increased opacity */
+}
+
+/* Sell order cards */
+.timeline-content[data-type="sell-order"],
+.timeline-content[data-type="sell-accepted"] {
+    background-color: rgba(235, 87, 87, 0.2) !important;  /* Increased opacity */
+}
+
+/* Trade cards */
+.timeline-content[data-type="trade"] {
+    background-color: rgba(0, 128, 128, 0.2) !important;  /* Increased opacity */
+} 
