@@ -1,0 +1,316 @@
+# Advanced Trading Simulator Education Platform
+
+## Project Title
+"TradeFlow 3D - Professional Trading Simulator with Real-time Market Simulation & 3D Trade Lifecycle Visualization"
+
+## Project Description
+Build a comprehensive, frontend-only trading simulator education platform in React that simulates a complete trading ecosystem. The platform should feature multiple asset classes (Equities, F&O, Forex), real-time market data simulation, order management, and a unique 3D visualization showing the complete journey of trades through various systems. All data persistence using localStorage/sessionStorage.
+
+## Technology Stack Requirements
+- **Framework**: React 18+ with TypeScript
+- **UI Components**: shadcn/ui (all components)
+- **3D Visualization**: Three.js with React Three Fiber
+- **State Management**: Zustand
+- **Charts**: Recharts + Lightweight Charts (TradingView)
+- **Animations**: Framer Motion
+- **Styling**: Tailwind CSS
+- **Data Grid**: AG-Grid React (for order books, blotters)
+- **WebSocket Simulation**: Mock WebSocket for real-time feeds
+- **Icons**: Lucide React
+
+## Core Features to Implement
+
+### 1. Market Structure Components
+
+#### A. Asset Classes & Instruments
+- **Equities**: Stocks with sectors (Tech, Finance, Healthcare, Energy)
+- **F&O**: Futures and Options with Greeks calculation
+- **Forex**: Major currency pairs with pip calculations
+- **Indices**: Market indices simulation
+
+#### B. Reference Data Management
+- Instrument master data (Symbol, ISIN, lot size, tick size)
+- Market hours and trading sessions
+- Circuit breaker limits
+- Corporate actions simulator
+
+### 2. Trading Infrastructure Simulation
+
+#### A. Order Management System (OMS)
+- **Order Types**: Market, Limit, Stop, Stop-Limit, Iceberg, TWAP, VWAP
+- **Time in Force**: DAY, GTC, IOC, FOK, GTD
+- **Order States**: New, Partially Filled, Filled, Cancelled, Rejected, Expired
+- **Complex Orders**: Bracket orders, OCO (One-Cancels-Other), Multi-leg strategies
+
+#### B. Matching Engine Simulation
+- Price-Time priority algorithm
+- Order book depth (Level 1, 2, and 3 data)
+- Continuous trading and auction matching
+- Dark pool simulation
+- Self-trade prevention
+
+#### C. Protocol Gateways (Simulated)
+- **FIX Gateway**: 
+  - NewOrderSingle (35=D)
+  - ExecutionReport (35=8)
+  - OrderCancelRequest (35=F)
+  - OrderCancelReplace (35=G)
+  - MarketDataRequest (35=V)
+  - OrderStatusRequest (35=H)
+  
+- **OUCH Gateway**:
+  - Enter Order Message
+  - Replace Order Message
+  - Cancel Order Message
+  - System Event Message
+  - Order Executed Message
+
+- **ITCH Feed**:
+  - System Event
+  - Stock Directory
+  - Add Order
+  - Order Execute
+  - Order Cancel
+  - Trade Message
+
+### 3. Market Data Systems
+
+#### A. Real-time Data Feeds
+- Simulated tick-by-tick data
+- Order book updates (bid/ask ladder)
+- Trade prints with volume
+- Market depth visualization
+- Time & Sales window
+- VWAP/TWAP calculations
+- Market statistics (Open, High, Low, Close, Volume)
+
+#### B. Market Data Terminal
+- Multi-panel layout with docking
+- Watchlists with custom columns
+- Heat maps for sectors
+- Market movers and losers
+- Volume profile charts
+- Option chain with Greeks
+
+### 4. Risk & Position Management
+
+#### A. Position Tracking
+- Real-time P&L calculation
+- Position aggregation by account/strategy
+- Average price calculations
+- Exposure monitoring
+- Margin requirements
+
+#### B. Risk Metrics
+- Value at Risk (VaR)
+- Greeks for options (Delta, Gamma, Theta, Vega, Rho)
+- Stress testing scenarios
+- Concentration risk
+- Liquidity risk indicators
+
+### 5. Post-Trade Processing
+
+#### A. Clearing & Settlement
+- Trade confirmation workflow
+- T+1/T+2 settlement cycles
+- Clearing house simulation
+- Margin calls
+- Failed trade management
+- Securities lending simulation
+
+#### B. Trade Reporting
+- **Trade Capture Reports**: Full trade details
+- **Execution Reports**: Fill information
+- **Position Reports**: EOD positions
+- **P&L Reports**: Realized/Unrealized
+- **Risk Reports**: Exposure analysis
+- **Regulatory Reports**: MiFID II, CAT simulation
+
+### 6. 3D Trade Flow Visualization
+
+#### A. Trade Journey Visualization
+Create an interactive 3D environment showing:
+- Order entry point
+- Gateway routing (FIX/OUCH)
+- Matching engine processing
+- Execution confirmation flow
+- Clearing house processing
+- Settlement finalization
+- Risk checkpoint visualizations
+
+#### B. Visual Elements
+- Animated particle effects for order flow
+- Color-coded paths for different order types
+- Real-time status updates on trade journey
+- Zoom and rotate capabilities
+- Timeline scrubber for replay
+- Multiple camera angles/presets
+
+### 7. User Interface Requirements
+
+#### A. Main Dashboard
+- Customizable widget-based layout
+- Dark/Light theme toggle
+- Multi-monitor support simulation
+- Keyboard shortcuts for all actions
+- Context menus
+- Drag-and-drop functionality
+
+#### B. Key Screens/Components
+1. **Trading Workstation**
+   - Order entry panel with all parameters
+   - Market depth ladder
+   - Charts with technical indicators
+   - Position blotter
+   - Order blotter
+   - Trade blotter
+
+2. **Market Data Terminal**
+   - Multi-asset watchlists
+   - News feed simulation
+   - Economic calendar
+   - Corporate actions tracker
+   - Market sentiment indicators
+
+3. **Risk Dashboard**
+   - Real-time P&L chart
+   - Risk heat map
+   - Exposure breakdown
+   - Margin utilization
+   - Stress test results
+
+4. **3D Visualization Center**
+   - Full-screen 3D environment
+   - Mini-map overview
+   - Trade replay controls
+   - Statistics overlay
+   - Performance metrics
+
+### 8. Educational Features
+
+#### A. Tutorial System
+- Guided walkthrough for each component
+- Interactive tooltips
+- Practice mode with virtual money
+- Achievement system
+- Progress tracking
+
+#### B. Scenario Simulation
+- Market crash scenarios
+- High volatility events
+- Options expiry simulation
+- Corporate action impacts
+- News-driven market moves
+
+### 9. Data Simulation Engine
+
+#### A. Market Data Generation
+- Realistic price movements using random walk
+- Correlation between instruments
+- Volume patterns (U-shaped intraday)
+- Spread dynamics
+- Market maker behavior simulation
+
+#### B. Order Flow Simulation
+- Institutional order flow
+- Retail order patterns
+- Algorithmic trading simulation
+- High-frequency trading effects
+- Market impact modeling
+
+### 10. Performance & Storage
+
+#### A. Local Storage Schema
+```javascript
+{
+  "instruments": [...],
+  "orders": [...],
+  "trades": [...],
+  "positions": [...],
+  "marketData": {...},
+  "userPreferences": {...},
+  "riskMetrics": {...},
+  "historicalData": {...}
+}
+```
+
+#### B. Performance Requirements
+- 60 FPS for 3D visualization
+- Sub-100ms order entry latency
+- Handle 10,000+ orders in blotter
+- Stream 1000+ ticks per second
+- Smooth animations and transitions
+
+## Specific Implementation Instructions
+
+1. **Start with Core Infrastructure**:
+   - Set up the state management with Zustand
+   - Create the matching engine logic
+   - Implement order lifecycle management
+
+2. **Build UI Components**:
+   - Use shadcn/ui for all form elements
+   - Implement AG-Grid for data tables
+   - Create the multi-panel layout system
+
+3. **Add 3D Visualization**:
+   - Use React Three Fiber for 3D scene
+   - Create animated trade flow paths
+   - Implement camera controls
+
+4. **Implement Protocols**:
+   - Create message formatters for FIX/OUCH/ITCH
+   - Build protocol state machines
+   - Add message validation
+
+5. **Market Data Simulation**:
+   - Build the tick generator
+   - Create order book aggregation
+   - Implement real-time charts
+
+6. **Testing Scenarios**:
+   - Include sample data for 50+ instruments
+   - Pre-configured market scenarios
+   - Stress test data sets
+
+## Visual Design Requirements
+
+- **Color Scheme**: Professional trading terminal aesthetics (dark mode primary)
+- **Typography**: Monospace for numbers, clean sans-serif for UI
+- **Animations**: Smooth, purposeful transitions
+- **Data Visualization**: Clear, high-contrast charts
+- **3D Style**: Futuristic, TRON-like aesthetic for trade flows
+
+## Deliverables
+
+1. Fully functional trading simulator with all mentioned features
+2. Responsive design working on desktop and tablets
+3. Comprehensive keyboard shortcuts
+4. Performance metrics dashboard
+5. Complete educational mode with tutorials
+6. Sample data for immediate testing
+7. Documentation for all features
+
+## Additional Features to Consider
+
+- Voice commands for order entry
+- AI-powered trade recommendations
+- Social trading features (leaderboards)
+- Strategy backtesting engine
+- Custom indicator builder
+- Alert system with notifications
+- Export functionality for reports
+- Multi-language support
+- Accessibility features (WCAG compliance)
+
+## Success Criteria
+
+The platform should provide a realistic, educational trading experience that helps users understand:
+- How orders flow through a trading system
+- Market microstructure concepts
+- Risk management principles
+- Different protocol standards
+- Post-trade lifecycle
+- Market dynamics and price discovery
+
+The 3D visualization should make complex trading concepts intuitive and engaging for learners at all levels.
