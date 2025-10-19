@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist/public",
+    "public": "Marketrons",
     "ignore": [
       "firebase.json",
       "**/.*",

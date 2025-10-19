@@ -37,7 +37,7 @@ var vite_config_default = defineConfig({
   },
   root: path.resolve(__dirname, "client"),
   build: {
-    outDir: path.resolve(__dirname, "Marketrons/v3"),
+    outDir: path.resolve(__dirname, "dist"),
     emptyOutDir: true
   },
   // Add support for large models and audio files
